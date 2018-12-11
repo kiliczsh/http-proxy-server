@@ -10,14 +10,9 @@ import java.util.*;
 
 public class Main extends Thread {
 
-    static final String HTML_START =
-            "<html>" +
-                    "<title>HTTP Server in java</title>" +
-                    "<body>";
+    static final String HTML_START = "<html>" + "<title>HTTP Server in java</title>" + "<body>";
 
-    static final String HTML_END =
-            "</body>" +
-                    "</html>";
+    static final String HTML_END = "</body>" + "</html>";
 
     Socket connectedClient = null;
     BufferedReader inFromClient = null;
@@ -32,8 +27,8 @@ public class Main extends Thread {
 
         try {
 
-            System.out.println( "The Client "+
-                    connectedClient.getInetAddress() + ":" + connectedClient.getPort() + " is connected");
+            System.out.println( "The Client "+ connectedClient.getInetAddress() + ":" +
+                    connectedClient.getPort() + " is connected");
 
             inFromClient = new BufferedReader(new InputStreamReader (connectedClient.getInputStream()));
             outToClient = new DataOutputStream(connectedClient.getOutputStream());
@@ -65,7 +60,7 @@ public class Main extends Thread {
                 } else {
 //This is interpreted as a file name
                     String fileName = httpQueryString.replaceFirst("/", "");
-                    fileName = URLDecoder.decode(fileName);
+                    fileName = URLDecoder.decode(fileName,"UTF-8");
                     if (new File(fileName).isFile()){
                         sendResponse(200, fileName, true);
                     }
