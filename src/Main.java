@@ -46,15 +46,19 @@ public class Main extends Thread {
             String httpVersion = tokenizer.nextToken();
 
             //obtain file size from httpQueryString
-            String sizeOf = "";
-            if(httpQueryString.matches(".*\\d+.*")){
-                sizeOf = httpQueryString.replaceAll("\\D+","");
+            String queryWithoutSlash = "";
+            if(httpQueryString.matches("/\\d+")){
+                System.out.println("match: "+httpQueryString);
+                queryWithoutSlash = httpQueryString.replaceAll("\\D+","");
             }else{
-                sizeOf = "-999";
+                System.out.println("not match: "+httpQueryString);
+                queryWithoutSlash = "0";
             }
-            int fileSize = Integer.parseInt(sizeOf);
 
-            
+            int fileSize = 100;
+            fileSize = Integer.parseInt(queryWithoutSlash);
+            System.out.println("filesize : "+fileSize);
+
             StringBuffer responseBuffer = new StringBuffer();
             responseBuffer.append("<b> This is the HTTP Server Home Page.... </b><BR>");
             responseBuffer.append("The HTTP Client request is ....<BR>");
