@@ -1,8 +1,9 @@
-import socket
 from sys import argv,getsizeof
 from os import urandom
 from base64 import b64encode
 import random,string
+from socket import * #import the python socket module
+import datetime # for timestamp log
 
 
 
@@ -55,8 +56,8 @@ SERVER_HOST = '0.0.0.0'
 SERVER_PORT = int(argv[1])
 
 # Create socket
-server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-server_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+server_socket = socket(AF_INET, SOCK_STREAM)
+server_socket.setsockopt(SOL_SOCKET, SO_REUSEADDR, 1)
 server_socket.bind((SERVER_HOST, SERVER_PORT))
 server_socket.listen(10)
 print('listening on port %s ...' % SERVER_PORT)
@@ -65,7 +66,17 @@ print('listening on port %s ...' % SERVER_PORT)
 while True:
     # Wait for client connections
     client, client_address = server_socket.accept()
-    
+    print("\n")
+    print("--------------------------------------------------------------------------")
+    print("TimeStamp",datetime.datetime.now(),"Request from", (gethostbyaddr(client.getpeername()[0]))[0],(gethostbyaddr(client.getpeername()[0]))[2])
+    print("Client Host Name:",(gethostbyaddr(client.getpeername()[0]))[0]) #find the host name obtaining the peer IP address   )
+    print("Client Socket Family:",client.family)
+    print("Client Socket Type:",client.type)
+    print("Client Protocol:", client.proto)
+    print("Client Socket- get Peer Name:", client.getpeername())
+    print("--------------------------------------------------------------------------")
+    print("\n")
+
     # Get the client request
     request = client.recv(1024).decode()
     print(request)
