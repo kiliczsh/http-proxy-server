@@ -8,11 +8,14 @@ public interface ProxyInterface {
     String tooLongStatus = "414 Request-URI Too Long";
     String okStatus = "200 OK";
     String badRequestStatus = "400 Bad Request";
+    String notModifiedStatus = "304 Not Modified";
 
     String version = "HTTP/1.0";
 
     String defaultAddr = "localhost:8080";
 
+    int READ = 0;
+    int WRITE = 1;
     class ReturnFormat{
         String uri;
         private String requestType;
@@ -42,4 +45,5 @@ public interface ProxyInterface {
             return requestType+" /"+uri+" "+version+"\r\n";
         }
     }
+
 }

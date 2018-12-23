@@ -1,8 +1,10 @@
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.HashMap;
+import java.util.Map;
 
 public class ProxyMain {
-
+    static Map cache = new HashMap();
     public static void main(String args[]) throws Exception {
         int port = 8888;
         ServerSocket server = new ServerSocket(port);
