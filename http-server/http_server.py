@@ -5,6 +5,7 @@ from datetime import datetime # for timestamp log
 
 
 
+
 def random_string(string_length):
     """Generate a random string of fixed length """
     letters = string.ascii_lowercase
@@ -64,6 +65,7 @@ while True:
     client, client_address = server_socket.accept()
     print("\n")
     print("--------------------------------------------------------------------------")
+
     print("TimeStamp",datetime.now(),"Request from", (gethostbyaddr(client.getpeername()[0]))[0],(gethostbyaddr(client.getpeername()[0]))[2])
     print("Client Host Name:",(gethostbyaddr(client.getpeername()[0]))[0]) #find the host name obtaining the peer IP address   )
     print("Client Socket Family:",client.family)

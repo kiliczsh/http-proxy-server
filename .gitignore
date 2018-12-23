@@ -92,3 +92,4 @@ fabric.properties
 
 # dynamic response file
 http-server/index.html
+*.md
