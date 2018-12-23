@@ -49,13 +49,13 @@ def get_file(request):
 
 # Define socket host and port
 SERVER_HOST = '0.0.0.0'
-SERVER_PORT = int(argv[1])
+SERVER_PORT = int(argv[1]) # assign port number
 
 # Create socket
 server_socket = socket(AF_INET, SOCK_STREAM)
 server_socket.setsockopt(SOL_SOCKET, SO_REUSEADDR, 1)
 server_socket.bind((SERVER_HOST, SERVER_PORT))
-server_socket.listen(10)
+server_socket.listen(101) # number of request server can handle 
 print('listening on port %s ...' % SERVER_PORT)
 
 
@@ -83,8 +83,6 @@ while True:
         file_input = open("."+filename)
         content = file_input.read()
         file_input.close()
-
-
 
         response = ""
         response += str('HTTP/1.0 200 OK\r\n')
