@@ -53,10 +53,10 @@ public class MyServer extends Thread {
             fileSize = Integer.parseInt(queryWithoutSlash); // assign VALUE to fileSize
 
             StringBuffer responseBuffer = new StringBuffer();
-            responseBuffer.append("<b> This is the HTTP Server Home Page.... </b><BR>");
-            responseBuffer.append("The HTTP Client request is ....<BR>");
+            responseBuffer.append("<b> This is the HTTP Server Home Page </b><BR>");
+            responseBuffer.append("The HTTP Client request is <BR>");
 
-            System.out.println("The HTTP request string is ....");
+            System.out.println("The HTTP request string is ");
 
             while (inFromClient.ready()) {
                 // Read the HTTP complete HTTP Query

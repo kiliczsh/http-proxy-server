@@ -41,7 +41,7 @@ public class Proxy implements Runnable,ProxyInterface{
                 System.out.println(info.produceString());
                 toServer.print(info.produceString()+"\r\n");
                 toServer.flush();
-                while((response = fromServer.readLine())!=null){
+                while((response = fromServer.readLine())!=null){ //forwarding site's message
                     System.out.println(response);
                     toClient.println(response);
                     toClient.flush();
@@ -54,10 +54,9 @@ public class Proxy implements Runnable,ProxyInterface{
             }
         } catch (IOException e) {
             response = Util.produceResponse(version,notFoundStatus,notFound,notFoundStatus);
+            System.out.println("Response: "+response);
             toClient.print(response);
             toClient.flush();
-
-
         }
         try{
             toClient.close();
