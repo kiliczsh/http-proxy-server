@@ -27,7 +27,7 @@ public class Proxy implements Runnable,ProxyInterface{
             request = fromClient.readLine();
             System.out.println("Request: "+request);
             ReturnFormat info;
-            if((info= interpret(request)) != null){
+            if((info= interpret(request)).errorCode == null){
                 Socket socket;
                 if(info.port == -1){
                     socket = new Socket(InetAddress.getByName(info.address).getHostAddress(),80);
@@ -46,8 +46,13 @@ public class Proxy implements Runnable,ProxyInterface{
                     toClient.println(response);
                     toClient.flush();
                 }
-            }else{
+            }else if(info.errorCode.equals(tooLongStatus)){
                 response = Util.produceResponse(version,tooLongStatus,tooLong,tooLongStatus);
+                System.out.println("Response: "+response);
+                toClient.print(response);
+                toClient.flush();
+            }else if(info.errorCode.equals(badRequestStatus)){
+                response = Util.produceResponse(version,badRequestStatus,badRequest,badRequestStatus);
                 System.out.println("Response: "+response);
                 toClient.print(response);
                 toClient.flush();
@@ -77,14 +82,16 @@ public class Proxy implements Runnable,ProxyInterface{
                     if(checkIfValidSize(uri = urlParts[0])){
                         return new ReturnFormat(typeGET, uri);
                     }else{
-                        return null;
+                        return new ReturnFormat(tooLongStatus);
                     }
                 }else if(urlParts[2].equals(defaultAddr) && checkIfValidSize(uri = urlParts[3])){
                     String[] addressParts = urlParts[2].split(":");
 
-                    if(addressParts.length == 2){
+                    if(addressParts.length == 2){//else badrequest
 
                         return new ReturnFormat(typeGET,addressParts[0],Integer.parseInt(addressParts[1]), uri);
+                    }else{
+                        return new ReturnFormat(badRequestStatus);
                     }
                 }else if(!urlParts[2].equals(defaultAddr)){
                     StringBuilder sb = new StringBuilder();
@@ -98,9 +105,9 @@ public class Proxy implements Runnable,ProxyInterface{
                 }
             }
         }catch (ArrayIndexOutOfBoundsException | NumberFormatException e){
-            return null;
+            return new ReturnFormat(badRequestStatus);
         }
-        return null;
+        return new ReturnFormat(tooLongStatus);
     }
     private boolean checkIfValidSize(String uri) throws NumberFormatException{
         int integer = Integer.parseInt(uri);
