@@ -1,5 +1,5 @@
 ## activate
 ```. web/bin/activate```
 
-## 
-```python3 http_server.py```
+## run on port 5000
+```python3 http_server.py 5000```
