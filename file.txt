@@ -65,17 +65,20 @@ ab/
         │   │   ├── n10c1.txt
         │   │   └── n10c5.txt
         │   └── wk
-        │       ├── n100c10.txt
-        │       ├── n100c1.txt
-        │       └── n100c5.txt
+        │       ├── n10kc10.txt
+        │       ├── n10kc1.txt
+        │       └── n10kc5.txt
         └── 100
             ├── ok
-            │   ├── n10kc10.txt
-            │   ├── n10kc1.txt
-            │   └── n10kc5.txt
+            │   ├── n100c10.txt
+            │   ├── n100c1.txt
+            │   └── n100c5.txt
             └── wk
                 ├── n100kc10.txt
                 ├── n100kc1.txt
-                └── n100kc5.txt
+                ├── n100kc5.txt
+                ├── n10kc10.txt
+                ├── n10kc1.txt
+                └── n10kc5.txt
 
-30 directories, 48 files
+30 directories, 51 files

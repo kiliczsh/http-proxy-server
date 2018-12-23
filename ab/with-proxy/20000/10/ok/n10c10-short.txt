@@ -1,0 +1,7 @@
+Time taken for tests:   0.205 seconds
+Total transferred:      200820 bytes
+HTML transferred:       200000 bytes
+Time per request:       205.047 [ms] (mean)
+Time per request:       20.505 [ms] (mean, across all concurrent requests)
+Transfer rate:          956.43 [Kbytes/sec] received
+Percentage of the requests served within a certain time (ms)
