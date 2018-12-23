@@ -12,7 +12,7 @@ public interface ProxyInterface {
 
     String version = "HTTP/1.0";
 
-    String defaultAddr = "localhost:8080";
+    String defaultAddr = "localhost";
 
     int READ = 0;
     int WRITE = 1;
@@ -33,7 +33,7 @@ public interface ProxyInterface {
         ReturnFormat(String requestType,String uri){
             this.requestType = requestType;
             this.errorCode = null;
-            this.address = "localhost";
+            this.address = defaultAddr;
             this.port = 8080;
             this.uri = uri;
         }

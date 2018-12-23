@@ -110,17 +110,21 @@ public class Proxy implements Runnable,ProxyInterface{
     private ReturnFormat interpret(String request){
         try{
             String[] requestParts = request.split(" ");
+
             if(requestParts[0].equals(typeGET)){
                 String[] urlParts = requestParts[1].split("/");
+                System.out.println();
                 String uri;
+                String[] addressParts;
                 if(urlParts.length == 2){ //default format
                     if(checkIfValidSize(uri = urlParts[0])){
                         return new ReturnFormat(typeGET, uri);
                     }else{
                         return new ReturnFormat(tooLongStatus);
                     }
-                }else if(urlParts[2].equals(defaultAddr) && checkIfValidSize(uri = urlParts[3])){
-                    String[] addressParts = urlParts[2].split(":");
+                }else if(urlParts[2].split(":")[0].equals(defaultAddr) && checkIfValidSize(uri = urlParts[3])){
+                    System.out.println("here");
+                    addressParts= urlParts[2].split(":");
 
                     if(addressParts.length == 2){//else badrequest
 
@@ -128,7 +132,7 @@ public class Proxy implements Runnable,ProxyInterface{
                     }else{
                         return new ReturnFormat(badRequestStatus);
                     }
-                }else if(!urlParts[2].equals(defaultAddr)){
+                }else if(!urlParts[2].split(":")[0].equals(defaultAddr)){
                     StringBuilder sb = new StringBuilder();
                     for(int i=3;i<urlParts.length;i++){
                         sb.append(urlParts[i]);
