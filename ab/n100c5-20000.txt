@@ -2,4 +2,41 @@ This is ApacheBench, Version 2.3 <$Revision: 1807734 $>
 Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
 Licensed to The Apache Software Foundation, http://www.apache.org/
 
-Benchmarking localhost (be patient)...
+Benchmarking localhost (be patient).....done
+
+
+Server Software:        
+Server Hostname:        localhost
+Server Port:            5000
+
+Document Path:          /20000
+Document Length:        20000 bytes
+
+Concurrency Level:      5
+Time taken for tests:   1.888 seconds
+Complete requests:      100
+Failed requests:        0
+Total transferred:      2008200 bytes
+HTML transferred:       2000000 bytes
+Requests per second:    52.96 [#/sec] (mean)
+Time per request:       94.419 [ms] (mean)
+Time per request:       18.884 [ms] (mean, across all concurrent requests)
+Transfer rate:          1038.53 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    0   0.1      0       0
+Processing:    17   93  13.7     94     114
+Waiting:       17   93  13.7     94     114
+Total:         17   93  13.7     94     114
+
+Percentage of the requests served within a certain time (ms)
+  50%     94
+  66%     97
+  75%    100
+  80%    101
+  90%    106
+  95%    111
+  98%    113
+  99%    114
+ 100%    114 (longest request)
