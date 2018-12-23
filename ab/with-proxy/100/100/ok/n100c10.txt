@@ -18,25 +18,25 @@ Complete requests:      100
 Failed requests:        0
 Total transferred:      18000 bytes
 HTML transferred:       10000 bytes
-Requests per second:    1279.07 [#/sec] (mean)
-Time per request:       7.818 [ms] (mean)
-Time per request:       0.782 [ms] (mean, across all concurrent requests)
-Transfer rate:          224.84 [Kbytes/sec] received
+Requests per second:    1280.18 [#/sec] (mean)
+Time per request:       7.811 [ms] (mean)
+Time per request:       0.781 [ms] (mean, across all concurrent requests)
+Transfer rate:          225.03 [Kbytes/sec] received
 
 Connection Times (ms)
               min  mean[+/-sd] median   max
-Connect:        0    0   0.1      0       0
-Processing:     1    7   2.8      6      16
-Waiting:        1    7   2.8      6      16
-Total:          1    7   2.8      6      16
+Connect:        0    0   0.1      0       1
+Processing:     0    7   1.6      7      10
+Waiting:        0    7   1.6      7      10
+Total:          1    7   1.6      7      10
 
 Percentage of the requests served within a certain time (ms)
-  50%      6
+  50%      7
   66%      9
   75%      9
-  80%     10
-  90%     11
-  95%     12
-  98%     15
-  99%     16
- 100%     16 (longest request)
+  80%      9
+  90%      9
+  95%     10
+  98%     10
+  99%     10
+ 100%     10 (longest request)

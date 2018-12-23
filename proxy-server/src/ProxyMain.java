@@ -6,7 +6,7 @@ import java.util.Map;
 public class ProxyMain {
     static Map cache = new HashMap();
     public static void main(String args[]) throws Exception {
-        int port = 8888;
+        int port = 8887;
         ServerSocket server = new ServerSocket(port);
         //noinspection InfiniteLoopStatement
         System.out.println("\nPort " + port+ " is listening...\n");

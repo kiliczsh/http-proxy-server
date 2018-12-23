@@ -4,7 +4,7 @@ import java.text.SimpleDateFormat;
 
 public class Util {
     public static String produceHtml(String title,String body){
-        return "<html><head><title>"+title+"</title></head><body>"+body+"</body></html>\r\n";
+        return "<!DOCTYPE html>\r\n<html>\r\n<head>\r\n<title>"+title+"</title>\r\n</head>\r\n<body>\r\n<p>"+body+"</p>\r\n</body>\r\n</html>";
     }
     public static String produceErrorMessage(String errorCode,String errorMessage){
         return "<b>"+errorCode+"</b><BR>"+errorMessage;
